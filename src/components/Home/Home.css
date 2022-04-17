@@ -1,0 +1,12 @@
+.headerText {
+    margin: 0 8rem 0 0;
+}
+h1 {
+    font-family: 'Rubik', sans-serif;
+}
+
+h2 {
+    font-size: 1.4rem;
+    font-family: 'Rubik', sans-serif;
+    color: rgb(177, 177, 177);
+}

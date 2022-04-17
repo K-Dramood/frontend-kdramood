@@ -7,7 +7,7 @@ import './Navigation.css';
 function Navigation({ loggedIn, handleLogout, userInfo }) {
     return (
         <div>
-            <Navbar bg='light' expand='lg' collapseOnSelect={true}>
+            <Navbar className='border' expand='lg' collapseOnSelect={true}>
 			<Container>
 				<LinkContainer to='/'>
 					<Navbar.Brand>
@@ -15,8 +15,8 @@ function Navigation({ loggedIn, handleLogout, userInfo }) {
                     </Navbar.Brand>
 				</LinkContainer>
 				<Navbar.Toggle aria-controls='basic-navbar-nav' />
-				<Navbar.Collapse id='basic-navbar-nav' className='justify-content-end'>
-					<Nav className='me-auto'>
+				<Navbar.Collapse id='basic-navbar-nav' className='justify-content-between'>
+					<Nav>
 						<LinkContainer to='/'>
 							<Nav.Link>Home</Nav.Link>
 						</LinkContainer>

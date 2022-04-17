@@ -13,7 +13,7 @@ import './App.css';
 import API_URL from './apiConfig';
 
 function App() {
-  let navigate = useNavigate();
+	let navigate = useNavigate();
 	const [loggedIn, setLoggedIn] = useState(false);
 	const [userInfo, setUserInfo] = useState(null);
 
@@ -69,9 +69,9 @@ function App() {
 	}, []);
 
 
-  return (
-    <div>
-      <Navigation
+	return (
+		<div>
+			<Navigation
 				loggedIn={loggedIn}
 				handleLogout={handleLogout}
 				userInfo={userInfo}
@@ -103,8 +103,20 @@ function App() {
 					</Routes>
 				</Container>
 			</main>
+
+			{/* Footer */}
+			<Container className='d-flex align-content-end'>
+				<div className='d-flex justify-content-between'>
+					<p>© Michelle McPherson 2022</p>
+					<div>
+						<a className='me-3' href="https://github.com/michellechoi126"><i className="fs-2 text-dark fab fa-github-square"></i></a>
+						<a className='me-3' href="https://www.linkedin.com/in/michellemcpherson126/"><i className="fs-2 text-dark fab fa-linkedin"></i></a>
+					</div>
+				</div>
+			</Container>
+            
     </div>
-  );
+	);
 }
 
 export default App;
