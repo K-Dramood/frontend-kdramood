@@ -33,7 +33,7 @@ function DramaEdit(props) {
 			}
 		};
 		getDramaDetail();
-	}, []);
+	}, [id]);
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
