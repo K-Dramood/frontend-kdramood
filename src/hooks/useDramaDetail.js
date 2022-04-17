@@ -16,7 +16,7 @@ function useDramaDetail(id) {
 		}
 	};
 
-	useEffect(() => {
+	useEffect((getDramaDetail = getDramaDetail) => {
 		getDramaDetail();
 	}, [] );
 
