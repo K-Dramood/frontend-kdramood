@@ -40,7 +40,7 @@ function DramaList({ loggedIn }) {
 		<Container>
 			<h1>KDramas</h1>
 			{loggedIn && (
-				<Link to='/kdramas/new'>
+				<Link to='/kdramas/add'>
 					<Button className='mb-4'>Add a kdrama</Button>
 				</Link>
 			)}

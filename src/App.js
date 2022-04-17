@@ -6,8 +6,8 @@ import Navigation from './components/Navigation/Navigation';
 import SignUp from './components/SignUp/SignUp';
 import Login from './components/Login/Login';
 import DramaDetail from './components/DramaDetail/DramaDetail';
-import ReviewCreate from './components/ReviewCreate/ReviewCreate';
-import ReviewForm from './components/ReviewForm/ReviewForm';
+import DramaCreate from './components/DramaCreate/DramaCreate';
+import DramaEdit from './components/DramaEdit/DramaEdit';
 import DramaList from './components/DramaList/DramaList';
 import './App.css';
 import API_URL from './apiConfig';
@@ -86,8 +86,8 @@ function App() {
 						/>
 						<Route path='/signup' element={<SignUp />} />
 						<Route
-							path='/reviews/new'
-							element={<ReviewCreate loggedIn={loggedIn} />}
+							path='/kdramas/new'
+							element={<DramaCreate loggedIn={loggedIn} />}
 						/>
 						<Route
 							path='/kdramas'
@@ -99,7 +99,7 @@ function App() {
 								<DramaDetail userInfo={userInfo} loggedIn={loggedIn} />
 							}
 						/>
-						<Route path='/reviews/:id/edit' element={<ReviewForm />} />
+						<Route path='/kdramas/:id/edit' element={<DramaEdit />} />
 					</Routes>
 				</Container>
 			</main>

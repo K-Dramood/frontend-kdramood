@@ -2,7 +2,6 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Container, Image, Button } from 'react-bootstrap';
 import useDramaDetail from '../../hooks/useDramaDetail';
 import API_URL from '../../apiConfig';
-import ReviewCreate from '../ReviewCreate/ReviewCreate';
 
 function DramaDetail({ userInfo, loggedIn }) {
     let navigate = useNavigate();
@@ -38,7 +37,7 @@ function DramaDetail({ userInfo, loggedIn }) {
 		<Container className='p-5 border rounded-3 bg-light'>
 			<div className='d -flex justify-content-between'>
 				<div>
-					<h2>{drama.name}</h2>
+					<h2>{drama.title}</h2>
 				</div>
 				{userInfo && userInfo.username === drama.user && (
 					<div>
@@ -58,7 +57,29 @@ function DramaDetail({ userInfo, loggedIn }) {
 			<h2 className='mt-4'>Reviews: </h2>
 			{!drama.reviews.length && <p>No reviews yet!</p>}
 			{loggedIn && <Button className='mb-5'>Write a review</Button>}
-			<ReviewCreate userInfo={userInfo} drama={drama}/>
+			{drama.reviews.length > 0 &&
+				drama.reviews.map((review) => {
+					return (
+						<Container
+							className='m-4 p-5 border rounded-3 bg-light'
+							key={review.id}>
+							<h4>Posted by: {review.user}</h4>
+							<small>
+                                at{' '}
+								{new Date(review.created).toLocaleString()}
+							</small>
+                            <p>{review.body}</p>
+							{userInfo && userInfo.username === review.user && (
+								<div>
+									<Button variant='secondary' className='m-4'>
+										Edit
+									</Button>
+									<Button variant='danger'>Delete</Button>
+								</div>
+							)}
+						</Container>
+					);
+				})}
 		</Container>
 	);
 };
