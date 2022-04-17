@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { useNavigate, Link } from 'react-router-dom';
 import API_URL from '../../apiConfig';
-import { pepperGenerator } from '@popperjs/core';
+// import { pepperGenerator } from '@popperjs/core';
 
 function Login({ handleSetLoggedIn }) {
     const initialFormData = {

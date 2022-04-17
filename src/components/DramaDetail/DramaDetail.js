@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Container, Image, Button } from 'react-bootstrap';
 import useDramaDetail from '../../hooks/useDramaDetail';

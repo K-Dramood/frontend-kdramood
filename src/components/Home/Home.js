@@ -11,7 +11,7 @@ import tfto from '../../images/2521.jpeg';
 import bp from '../../images/bp.jpeg';
 import pachinko from '../../images/pachinko.jpeg';
 import './Home.css';
-import SignUp from '../SignUp/SignUp';
+// import SignUp from '../SignUp/SignUp';
 
 function Home() {
     return (
