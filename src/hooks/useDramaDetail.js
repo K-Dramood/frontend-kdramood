@@ -19,7 +19,7 @@ function useDramaDetail(id) {
 		};
 	
 		getDramaDetail();
-	}, [] );
+	}, [kdramaId] );
 
 	return drama;
 }
