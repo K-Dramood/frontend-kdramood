@@ -3,12 +3,12 @@ import API_URL from '../apiConfig';
 
 function useDramaDetail(id) {
 	const [drama, setDrama] = useState(null);
-	const id = {id}
-	
+	const kdramaId = id
+
 	useEffect(() => {
-		const getDramaDetail = async (id) => {
+		const getDramaDetail = async () => {
 			try {
-				const response = await fetch(API_URL + `kdramas/${id}`);
+				const response = await fetch(API_URL + `kdramas/${kdramaId}`);
 				if (response.status === 200) {
 					const data = await response.json();
 					setDrama(data);

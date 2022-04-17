@@ -9,8 +9,6 @@ function DramaDetail({ userInfo, loggedIn }) {
 	const { id } = useParams();
 	const drama = useDramaDetail(id);
 
-    console.log(drama);
-
 	const handleDelete = async (event) => {
 		const confirm = window.confirm('Are you sure you want to delete?');
 
