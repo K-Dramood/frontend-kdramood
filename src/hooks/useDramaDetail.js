@@ -3,7 +3,7 @@ import API_URL from '../apiConfig';
 
 function useDramaDetail(id) {
 	const [drama, setDrama] = useState(null);
-	const id = id
+	const id = {id}
 	
 	useEffect(() => {
 		const getDramaDetail = async (id) => {
