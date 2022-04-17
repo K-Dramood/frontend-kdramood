@@ -105,13 +105,11 @@ function App() {
 			</main>
 
 			{/* Footer */}
-			<Container className='d-flex align-content-end'>
-				<div className='d-flex justify-content-between'>
-					<p>© Michelle McPherson 2022</p>
-					<div>
-						<a className='me-3' href="https://github.com/michellechoi126"><i className="fs-2 text-dark fab fa-github-square"></i></a>
-						<a className='me-3' href="https://www.linkedin.com/in/michellemcpherson126/"><i className="fs-2 text-dark fab fa-linkedin"></i></a>
-					</div>
+			<Container className='d-flex align-content-end justify-content-between'>
+				<p>© Michelle McPherson 2022</p>
+				<div className='d-flex justify-content-end'>
+					<a className='me-3' href="https://github.com/michellechoi126"><i className="fs-2 text-dark fab fa-github-square"></i></a>
+					<a className='me-3' href="https://www.linkedin.com/in/michellemcpherson126/"><i className="fs-2 text-dark fab fa-linkedin"></i></a>
 				</div>
 			</Container>
             
