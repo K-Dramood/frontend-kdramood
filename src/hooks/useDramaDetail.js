@@ -6,7 +6,7 @@ function useDramaDetail(id) {
 
 	
 
-	useEffect(() => {
+	useEffect((id) => {
 		const getDramaDetail = async () => {
 			try {
 				const response = await fetch(API_URL + `kdramas/${id}`);
