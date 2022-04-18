@@ -7,18 +7,6 @@ function DramaEdit(props) {
 	const { id } = useParams();
 	let navigate = useNavigate();
 	const [formData, setFormData] = useState(null);
-	
-	// const getDramaDetail = async () => {
-	// 	try {
-	// 		const response = await fetch(API_URL + `kdramas/${id}`);
-	// 		if (response.status === 200) {
-	// 			const data = await response.json();
-	// 			setFormData(data);
-	// 		}
-	// 	} catch (error) {
-	// 		console.log(error);
-	// 	}
-	// };
 
 	useEffect(() => {
 		const getDramaDetail = async () => {
