@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect }from 'react';
 import { Row, Container, Image, Button, Col, CardGroup, Card } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import homeImg from '../../images/default.jpg';
@@ -11,9 +11,66 @@ import tfto from '../../images/2521.jpeg';
 import bp from '../../images/bp.jpeg';
 import pachinko from '../../images/pachinko.jpeg';
 import './Home.css';
-// import SignUp from '../SignUp/SignUp';
+import API_URL from '../../apiConfig';
 
 function Home() {
+    const [dramas, setDramas] = useState([]);
+    const [error, setError] = useState(false);
+
+	const getDramasList = async () => {
+		try {
+			setError(false);
+			const response = await fetch(API_URL + 'kdramas');
+			if (response.status === 200) {
+				const data = await response.json();
+				setDramas(data);
+			} else {
+				setError(true);
+			}
+		} catch (error) {
+			setError(true);
+		}
+
+		return;
+	};
+
+	useEffect(() => {
+		getDramasList();
+	}, []);
+
+	const happyMood = dramas.filter((drama) => {
+		return drama.mood === "Happy";
+	})
+    const happyRandom = happyMood[Math.floor(Math.random()*happyMood.length)]
+
+	const sadMood = dramas.filter((drama) => {
+		return drama.mood === "Sad";
+	})
+    const sadRandom = sadMood[Math.floor(Math.random()*sadMood.length)]
+
+	const inspiredMood = dramas.filter((drama) => {
+		return drama.mood === "Inspired";
+	})
+    const inspiredRandom = inspiredMood[Math.floor(Math.random()*inspiredMood.length)]
+
+	const scaredMood = dramas.filter((drama) => {
+		return drama.mood === "Scared";
+	})
+    const scaredRandom = scaredMood[Math.floor(Math.random()*scaredMood.length)]
+
+	const adventurousMood = dramas.filter((drama) => {
+		return drama.mood === "Adventurous";
+	})
+    const adventurousRandom = adventurousMood[Math.floor(Math.random()*adventurousMood.length)];
+
+	if (!error && !dramas.length) {
+		return null;
+	}
+
+	if (error && !dramas.length) {
+		return <div>Oops, something went wrong! Please try again later!</div>;
+	}
+
     return (
         <div>
             {/* Top Header */}
@@ -52,9 +109,11 @@ function Home() {
                                 className='mx-auto d-block'
                                 src={inspired}
                             />
-                            <Button variant="info" className='mt-4'>
-                                Inspired
-                            </Button>
+                            <Link to={`/kdramas/${inspiredRandom.id}/`}>
+                                <Button variant="info" className='mt-4'>
+                                    Inspired
+                                </Button>
+                            </Link>
                     </Col>
                     <Col className="text-center">
                         <h3 className='fw-bold'>I Want To Feel...</h3>
@@ -65,9 +124,11 @@ function Home() {
                             className='mx-auto d-block'
                             src={adventurous}
                         />
-                        <Button variant="info" className='mt-4'>
-                            Adventurous
-                        </Button>
+                        <Link to={`/kdramas/${adventurousRandom.id}/`}>
+                            <Button variant="info" className='mt-4'>
+                                Adventurous
+                            </Button>
+                        </Link>
                     </Col>
                 </Row>
                 <Row className='p-5'>
@@ -76,27 +137,35 @@ function Home() {
                             className='mx-auto d-block'
                             src={happy}
                         />
-                        <Button variant="info" className='mt-4'>
-                            Happy
-                        </Button>
+                        <Link to={`/kdramas/${happyRandom.id}/`}>
+                            <Button variant="info" className='mt-4'>
+                                Happy
+                            </Button>
+                        </Link>
                     </Col>
                     <Col className="text-center">
                         <Image
                             className='mx-auto d-block'
                             src={sad}
                         />
-                        <Button variant="info" className='mt-4'>
-                            Sad
-                        </Button>
+                        <Link to={`/kdramas/${sadRandom.id}/`}>
+                            <Button variant="info" className='mt-4'>
+                                Sad
+                            </Button>
+                        </Link>
+                        
                     </Col>
                     <Col className="text-center">
                         <Image
                             className='mx-auto d-block'
                             src={scared}
                         />
-                        <Button variant="info" className='mt-4'>
-                            Scared
-                        </Button>
+                        <Link to={`/kdramas/${scaredRandom.id}/`}>
+                            <Button variant="info" className='mt-4'>
+                                Scared
+                            </Button>
+                        </Link>
+                        
                     </Col>
                 </Row>
             </Container>

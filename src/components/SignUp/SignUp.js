@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { useNavigate, Link } from 'react-router-dom';
 import API_URL from '../../apiConfig';
+import { createPopper } from '@popperjs/core';
+
 
 function SignUp(props) {
     const initialFormData = {
@@ -125,7 +127,12 @@ function SignUp(props) {
 				<Button type='submit' disabled={error}>
 					Sign up
 				</Button>
-				{error && <Alert variant='danger'>Passwords must match!</Alert>}
+				{error && 
+					<div id="popper">
+						<Alert variant='danger' data-popper-arrow>
+							Passwords must match!
+						</Alert>
+					</div>}
 				{success && (
 					<Alert variant='success' className='mt-5'>
 						User successfully created! You will be redirected to log in. If you
